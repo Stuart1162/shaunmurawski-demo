@@ -1,0 +1,72 @@
+/* Page Loader Styles */
+.page-loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.page-loader.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader-content {
+    text-align: center;
+}
+
+.loader-gif {
+    margin-bottom: 2rem;
+}
+
+.loader-gif img {
+    width: 60px;
+    height: 60px;
+    opacity: 0.8;
+}
+
+.loader-text {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-size: 1.5rem;
+    color: #111;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+}
+
+/* Fallback animated loader if GIF doesn't load */
+.loader-gif::before {
+    content: '';
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid #111;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+.loader-gif img[src] + ::before {
+    display: none;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hide main content until loader fades */
+.page-loader.active ~ * {
+    opacity: 0;
+}
+
+.page-loader.fade-out ~ * {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}

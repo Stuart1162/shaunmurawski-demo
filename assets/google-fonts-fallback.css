@@ -1,0 +1,18 @@
+/* Google Fonts fallback */
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital,wght@0,400;1,400&display=swap');
+
+/* Override local font with Google Fonts */
+.logo, 
+.logotop, 
+.logobottom,
+.masonry-content h3,
+.poem-header h1,
+.poem-text,
+.mobile-menu .mobile-menu-content .mobile-menu-link,
+.info-header h1,
+.info-body h2,
+.info-body h3,
+.contact-header h1,
+.contact-centered h2 a {
+    font-family: 'Instrument Serif', Georgia, serif !important;
+}
